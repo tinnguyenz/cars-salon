@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+describe "Associations" do
+  it { should belong_to(:property).without_validating_presence }
+end
+
 RSpec.describe Car, :type => :model do
 
   subject { described_class.new }
