@@ -13,8 +13,11 @@
 ActiveRecord::Schema[7.0].define(version: 2022_06_07_082622) do
   create_table "cars", force: :cascade do |t|
     t.string "name"
-    t.decimal "price", precision: 10, scale: 2
-    t.text "picture"
+    t.integer "wheel"
+    t.integer "seat"
+    t.string "fuel"
+    t.string "speed"
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
