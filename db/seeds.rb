@@ -8,18 +8,17 @@ properties = [
   [4, 2, "gasoline", "90km/h", "naviblue"],
   [4, 2, "electricity", "15km/h", "brown"],
   [10, 5, "gasoline", "400km/h", "orange"],
-  [4, 5, "electricity", "380km/h", "teal"],
+  [4, 5, "electricity", "380km/h", "teal"]
 ]
 
-cars_names.each do |name|
-  new_car = properties[rand(properties.count)]
-  new_car.unshift(name)
-
+cars_names.each_with_index do |name, i|
+  new_car = properties[i].unshift(name)
   list_of_cars << new_car
 end
 
-list_of_cars.each do |car| 
-  property = Property.new(wheel: car[1], seat: car[2], fuel: car[3], speed: car[4], color: car[5])
-  Car.new(name: car[0], property: property).save
-end
+list_of_cars.each_with_index do |item, index| 
+  property = Property.new(wheel: item[1], seat: item[2], fuel: item[3], speed: item[4], color: item[5], car_id: index)
+  car = Car.new(id: index, name: item[0], property: property)
 
+  car.save
+end

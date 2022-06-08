@@ -1,6 +1,5 @@
 class Car < ActiveRecord::Base
-  has_one :property, :dependent => :destroy
+  has_one :property
 
   validates :name, presence: true
-  validate :property
 end
