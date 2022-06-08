@@ -16,6 +16,7 @@ RSpec.describe Property, type: :model do
       property = Property.new(wheel: 4, seat: 4, fuel: "electricity", speed: "300km/h", color: "yellow")
       expect(subject).to be_valid
       expect(property).to be_valid
+
     end
 
     it "creates new car with invalid property" do
