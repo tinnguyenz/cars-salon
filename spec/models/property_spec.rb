@@ -11,6 +11,20 @@ RSpec.describe Property, type: :model do
             color: "black")  
   }
 
+  describe "New property" do
+    it "creates a property" do
+      property = Property.new(wheel: 4, seat: 4, fuel: "electricity", speed: "300km/h", color: "yellow")
+      expect(subject).to be_valid
+      expect(property).to be_valid
+    end
+
+    it "creates new car with invalid property" do
+      property = Property.new(wheel: 4, fuel: "electricity", speed: "300km/h", color: "yellow")
+      expect(subject).to be_valid
+      expect(property).to_not be_valid
+    end
+  end
+
   describe "Associations" do
     it { should belong_to(:car).without_validating_presence }
   end
