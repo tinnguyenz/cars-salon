@@ -1,5 +1,5 @@
 class Property < ActiveRecord::Base
-  belongs_to :car, autosave: true
+  belongs_to :car, autosave: true, optional: true
 
   validates :wheel, presence: true
   validates :seat, presence: true

@@ -13,8 +13,11 @@ A Property only exists with or without a Car, as the there is a chance that anot
  `rvm use ruby-3.1.12@rails7`
  - After bundle is install, run rake for database stuff:
  `rake db:drop db:create db:migrate db:test:prepare db:seed`
- - Start web server: `rails s` ~> http://localhost:3000/api/cars
+ 
+ - Start web server: `docker compose up` ~> http://localhost:3000/api/cars
  - Run RSpec:
-  `rspec spec/models/*_spec.rb 
+  `docker-compose run -e "RAILS_ENV=test" api bundle exec rspec spec/models/*_spec.rb`
+
+
  
 
