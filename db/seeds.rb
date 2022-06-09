@@ -17,8 +17,7 @@ cars_names.each_with_index do |name, i|
 end
 
 list_of_cars.each_with_index do |item, index| 
-  property = Property.new(wheel: item[1], seat: item[2], fuel: item[3], speed: item[4], color: item[5], car_id: index)
+  property = Property.create(wheel: item[1], seat: item[2], fuel: item[3], speed: item[4], color: item[5], car_id: index)
   car = Car.new(id: index, name: item[0], property: property)
-
   car.save
 end
